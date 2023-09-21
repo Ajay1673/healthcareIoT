@@ -16,7 +16,7 @@ header{
 .bg{
     
     /* background-color: aqua; */
-    background: rgba(0,0,0,0.7)url('/templates/static/images/bg.jpg');
+    background: rgba(0,0,0,0.7)url('/templates/images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
