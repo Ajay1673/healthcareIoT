@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/login.css" />
+
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <nav>
+        <h1>Lifeline Hospitals</h1>
+        <div class="home">
+          <ul>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <hr />
+    <div class="logform">
+      <div class="loginform">
+        <h2>Login</h2>
+        <div class="lform">
+          <form method="post" action="/authlogin">
+            <input type="hidden" class="text-danger" id="message" value="{{message}}">
+            <div class="form-fields">
+              <label>Enter your ID</label>
+              <input
+              type="text"
+              placeholder="ID"
+              maxlength="10"
+              name="id"
+              id="id"
+              required
+              />
+            </div>
+            <div class="form-fields">
+              <label>Password</label>
+              <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              id="password"
+              required
+              />
+            </div>
+            
+            <button class="loginbutton" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="application/javascript">
+      let message = document.getElementById('message').value 
+      if(message == 'Wrong ID or Password!'){
+        alert(message)
+      }
+      
+    </script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link  type="text/css" rel="stylesheet" href="/templates/css/dash.css">
+    <link  type="text/css" rel="stylesheet" href="assets/css/dash.css">
     <title>Add Patient</title>
 </head>
 <body>
@@ -12,64 +12,74 @@
         <h1>Lifeline Hospital</h1>
         <nav>
             <ul>
-                <li>Profile</li>
-                <li>Logout</li>
+              <li><a href="{{url_for('home')}}" style="text-decoration: none; color: #444;">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
       <div class="sidebar">
-        <span><a href="/templates/dashboard.html">Dashboard</a></span>
-        <span><a href="/templates/patient.html">Add Patient</a></span>
-        <span>Settings</span>
-        <span>About ℹ️</span>
+        <span><a href="{{url_for('dashboard')}}">Dashboard</a></span>
+
+        <span><a href="{{url_for('patient')}}">Add Patient</a></span>
+
+        <span><a href="{{url_for('settings')}}">Settings</a></span>
+        <span><a href="{{url_for('about')}}">About ℹ️</a></span>
+        
       </div>
       
       <div class="main-content">     
-        <form class="row g-3">
+        <form class="row g-3" method="post" action="/add_patient">
           <div class="col-12">
             <h2>Add Patient</h2>
           </div>
           <div class="col-6">
             <label for="inputID" class="form-label">Patient ID</label>
-            <input type="text" class="form-control" id="inputID">
+            <input type="text" class="form-control" name="id" id="inputID">
           </div>
           <div class="col-md-6">
             <label for="inputName" class="form-label">Patient Name</label>
-            <input type="text" class="form-control" id="inputName">
+            <input type="text" class="form-control" name="name" id="inputName">
+          </div>
+          <div class="col-6">
+            <label for="inputDoctor" class="form-label">Doctor ID</label>
+            <input type="text" class="form-control" name="doc_id" id="inputDoc_ID">
+          </div>
+          <div class="col-6">
+            <label for="inputDoctor" class="form-label">Doctor Name</label>
+            <input type="text" class="form-control" name="doc_name" id="inputDoc_ID">
           </div>
           <div class="col-md-6">
             <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail">
+            <input type="email" class="form-control" name="email" id="inputEmail">
           </div>
           <div class="col-6">
             <label for="inputPhone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="inputPhone">
+            <input type="text" class="form-control" name="phone" id="inputPhone">
           </div>
           <div class="col-12">
             <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
           </div>
           <div class="col-md-6">
             <label for="inputDisease" class="form-label">Disease</label>
-            <input type="text" class="form-control" id="inputDisease">
+            <input type="text" class="form-control" name="disease" id="inputDisease">
           </div>
           <div class="col-md-4">
             <label for="inputState" class="form-label">Gender</label>
-            <select id="inputGender" class="form-select">
+            <select name="gender" id="inputGender" class="form-select">
               <option selected disabled>Choose...</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div class="col-md-2">
             <label for="inputAge" class="form-label">Age</label>
-            <input type="text" class="form-control" id="inputAge">
+            <input type="text" class="form-control" name="age" id="inputAge">
           </div>
           <div class="col-12">
             <label for="inputCause" class="form-label">Causes/ Effects</label>
-            <input class="form-control" type="text" id="inputCause">
+            <input class="form-control" type="text" name="cause" id="inputCause">
           </div>
           <div class="col-12">
             <button type="reset" class="btn btn-primary">CLEAR</button>

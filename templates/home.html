@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="D:/healthcareIoT/templates/css/home.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
     <title>Lifeline Hospital {{request}} {{id}}</title>
   </head>
   <body>
-    <header class="bg">
+    <header class="bg" style="background: rgba(0,0,0,0.6)url('assets/images/bg.jpg');  background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+    ">
       <nav>
         <ul class="navbar">
+          <li><a href="{{url_for('login')}}">Login</a></li>
           <li class="Log">
-            <p>Login</p>
+            <p>Register</p>
             <ul>
-              <li><a href="/templates/login.html">Doctor</a></li>
-              <li><a href="/templates/login.html">Nurse</a></li>
+              <li><a href="{{url_for('docregister')}}">Doctor</a></li>
+              <li><a href="{{url_for('nurregister')}}">Nurse</a></li>
             </ul>
           </li>
         </ul>
@@ -26,8 +30,8 @@
       <div class="designs">
         Monitor your Patient!
         <div class="images">
-          <img src="/templates/images/monitor1.webp" width="350px" height="250px" alt="monitor"/>
-          <img src="/templates/images/monitor2.jpg" width="350px" height="250px" alt="monitor"/>  
+          <img src="assets/images/monitor1.webp" width="350px" height="250px" alt="monitor"/>
+          <img src="assets/images/monitor2.jpg" width="350px" height="250px" alt="monitor"/>  
         </div>
       </div>
 

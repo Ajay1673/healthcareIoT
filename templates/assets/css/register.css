@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-x: hidden;
+}
+nav h1{
+    width: 100vw;
+    text-align: center;
+    /* background-color: aqua; */
+    /* margin: 0.5rem 0 0 0; */
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.home li{
+    list-style: none;
+}
+.home li a,a:visited{
+    text-decoration: none;
+    color: rgb(26, 26, 26);
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+hr{
+    position: relative;
+    /* top:5px; */
+    width: 80%;
+    border-bottom: 2px solid rgb(142, 141, 141);
+    margin: 0 auto;
+}
+.form-data{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    border: 1px solid rgb(142, 141, 141);
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(142, 141, 141);
+    margin: 0 auto;
+    /* padding: 0.25rem 0; */
+}
+.form-data h2{
+    padding: 0.5rem;
+    text-align: center;
+}
+form{
+    /* width: 100%; */
+    margin: 0 auto;
+}
+form button{
+    margin: 0.5rem;
+}
+/* #message{
+    display: hidden;
+} */

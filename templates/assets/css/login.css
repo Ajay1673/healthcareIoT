@@ -1,0 +1,274 @@
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css'); */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html,body{
+      width: 100%;
+      height: 100%;
+      color: rgb(30, 30, 30);
+  }
+  body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #e4e4e4;
+    
+  }
+  .navbar{
+      height:15%;
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+      background-color: transparent; 
+      /* border: 10px solid #0000; */
+  }
+  nav{
+      height:100%;
+  }
+  nav > h1{
+      text-align: center;    
+      padding-top: 25px;
+      font-size: 2.6rem;
+      /* padding-bottom: 20px; */ 
+  }
+  .home{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .home li > a,a:visited{
+    text-decoration: none;
+    margin:2px 0px 2px 50px;
+    font-size: 1.3rem;
+    color: rgb(26, 26, 26);
+  }
+  hr{
+    position: relative;
+    top:5px;
+    width: 80%;
+    border-bottom: 1px solid silver;
+    margin: 0 auto;
+  }
+  .loginform > h2{
+      text-align: center;
+      padding: 10px;
+      font-size: 2rem;
+  }
+  .logform{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:10%;
+    color: black;
+  }
+  /* form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  } */
+  .loginform {
+    /*top:20%; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* left:33%; */
+    /* width: 35%;
+    height:60%; */
+      position: relative;
+      background-color: white;
+      border-radius: 20px;
+      border: 1px solid #bbbb;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .lform{
+      /* background-color: aquamarine; */
+      font-size: 1.5rem;
+      position: relative;
+      /* margin: auto; */
+      /* width: 100%; */
+      padding:0 25px 50px;
+      border-radius: 0 0px 20px 20px;
+      /* position: absolute; */
+  }
+  /* @media screen only(max-wi) { */
+    input{
+      font-size: 1.2rem;
+      margin: 10px;
+      /* height: 40px; */
+      padding: 5px;
+      border-radius: 5px;
+      border: 2px solid silver;
+  }
+  
+  .loginbutton{
+      position: relative;
+      left: 36%;
+      color:#555;
+      /* border-radius: 7px; */
+      font-size: 1rem;
+      padding: 0;
+      width:60px;
+      height: 30px;
+      border: 2px solid silver;
+      border-radius: 5px;
+  }
+  .loginbutton:hover{
+    color: azure;
+    background-color: #7777;
+  }
+  .loginbutton a,a:visited{
+    text-decoration: none;
+    color: #555;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: aqua; */
+  }
+  form button{
+    justify-content: center;
+    align-items: center;
+  }
+  .form-fields{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #message{
+    display: hidden;
+  }
+  
+  
+  /* span {
+      position: absolute;
+      border-radius: 100vmax;
+    }
+    
+    .top {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 5px;
+      background: linear-gradient(
+        90deg,
+        transparent 50%,
+        rgb(57, 255, 20)
+      );
+    }
+    
+    .bottom {
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: linear-gradient(
+        90deg,
+        rgb(57, 255, 20, 1),
+        transparent 50%
+      );
+    }
+    
+    .right {
+      top: 0;
+      right: 0;
+      width: 5px;
+      height: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 30%,
+        rgb(57, 255, 20, 1),
+      );
+    }
+    
+    .left {
+      left: 0;
+      bottom: 0;
+      width: 5px;
+      height: 0;
+      background: linear-gradient(
+        180deg,
+        rgb(57, 255, 20),
+        transparent 70%
+      );
+    }
+    
+    .top {
+      animation: animateTop 6s ease-in-out infinite;
+    }
+    
+    .bottom {
+      animation: animateBottom 6s ease-in-out infinite;
+    }
+    
+    .right {
+      animation: animateRight 6s ease-in-out infinite;
+    }
+    
+    .left {
+      animation: animateLeft 6s ease-in-out infinite;
+    }
+    
+    @keyframes animateTop {
+      25% {
+        width: 97%;
+        opacity: 1;
+      }
+    
+      30%,
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes animateBottom {
+      0%,
+      50% {
+        opacity: 1;
+        width: 0;
+      }
+    
+      75% {
+        opacity: 1;
+        width: 97%;
+      }
+    
+      76%,
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes animateRight {
+      0%,
+      25% {
+        opacity: 1;
+        height: 0;
+      }
+    
+      50% {
+        opacity: 1;
+        height: 97%;
+      }
+    
+      55%,
+      100% {
+        height: 97%;
+        opacity: 1;
+      }
+    }
+    
+    @keyframes animateLeft {
+      0%,
+      75% {
+        opacity: 1;
+        bottom: 0;
+        height: 0;
+      }
+    
+      100% {
+        opacity: 1;
+        height: 97%;
+      }
+    } */
+  

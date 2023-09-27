@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link  type="text/css" rel="stylesheet" href="/assets/css/dash.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>View Patient Details</title>
+</head>
+<body>
+    <header>
+        <h1>Lifeline Hospital</h1>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('home')}}" style="text-decoration: none; color: #444;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <div class="sidebar">
+        
+        <span><a href="{{url_for('dashboard')}}">Dashboard</a></span>
+
+        <span><a href="{{url_for('patient')}}">Add Patient</a></span>
+        <span><a href="{{url_for('settings')}}">Settings</a></span>
+        <span><a href="{{url_for('about')}}">About ℹ️</a></span>
+        
+      </div>
+      <div class="main-content"> 
+        <div class="row g-3">    
+            <div class="col-12">
+                <h2>Add Patient</h2>
+            </div>
+            <div class="col-6">
+                <label for="inputID" class="form-label">Patient ID</label>
+                <input type="text" class="form-control" value="{{i.patient_id}}" disabled>
+            </div>
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">Patient Name</label>
+                <input type="text" class="form-control" value="{{i.patient_name}}" disabled>
+            </div>
+            <div class="col-6">
+                <label for="inputCause" class="form-label"></label>
+                <input class="form-control" type="text" id="temperature" disabled>
+            </div>
+            <div class="col-6">
+                <label for="inputCause" class="form-label"></label>
+                <input class="form-control" type="text" id="pulse" disabled>
+            </div>
+            <div class="col-6">
+                <label for="inputDoctor" class="form-label">Doctor ID</label>
+                <input type="text" class="form-control" disabled value="{{i.doctor_id}}">
+            </div>
+            <div class="col-md-6">
+                <label for="inputDoctor" class="form-label">Doctor Name</label>
+                <input type="text" class="form-control" disabled value="{{i.doctor_name}}">
+            </div>
+            <div class="col-6">
+                <label for="inputEmail" class="form-label">Phone</label>
+                <input type="email" class="form-control" disabled value="{{i.patient_phone}}">
+            </div>
+            <div class="col-6">
+                <label for="inputPhone" class="form-label">Disease</label>
+                <input type="text" class="form-control" disabled value="{{i.patient_disease}}">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Causes/ Symptoms</label>
+                <input type="text" class="form-control" disabled value="{{i.patient_cause}}">
+            </div>  
+            <div class="col-4">
+                <label for="inputState" class="form-label">Gender</label>
+                <input type="text" class="form-control" value="{{i.patient_gender}}" disabled>
+            </div>
+            <div class="col-4">
+                <label for="inputAge" class="form-label">Age</label>
+                <input type="text" class="form-control" value="{{i.patient_age}}" disabled>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary" onclick="dashboard()">Back</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <footer>
+      <h3>Thank You!</h3>
+    </footer>
+    <script type="application/javascript">
+        function dashboard(){
+            window.location.replace('/dashboard')
+        }
+
+        function fetchTemperatureC() {
+            fetch('http://192.168.221.7/temperaturec')
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+            })
+            .then(data => {
+            document.getElementById("temperature").value = data;
+            })
+            .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+
+        // Fetch temperature data periodically
+        setInterval(fetchTemperatureC, 3000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+
+</body>
+</html>
