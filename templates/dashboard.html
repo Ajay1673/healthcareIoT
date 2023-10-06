@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link  type="text/css" rel="stylesheet" href="assets/css/dash.css">
+    <link  type="text/css" rel="stylesheet" href="/assets/css/dash.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Dashboard</title>
 </head>
@@ -13,7 +13,7 @@
         <h1>Lifeline Hospital</h1>
         <nav>
             <ul>
-                <li><a href="{{url_for('home')}}" style="text-decoration: none; color: #444;">Logout</a></li>
+                <li><a href="{{url_for('logout')}}" style="text-decoration: none; color: #444;">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -32,7 +32,6 @@
         <table class="table" style="border-radius: 5px;">
           <thead>
             <tr>
-              <th scope="col-1">#</th>
               <th scope="col-1">Patient ID</th>
               <th scope="col-2">Patient Name</th>
               <th scope="col-1">Age</th>
@@ -44,7 +43,6 @@
           <tbody>
             {% for i in patientsData %}
             <tr>
-              <td>{{i.id}}</td>
               <td class="patient_id">{{i.patient_id}}</td>
               <td>{{i.patient_name}}</td>
               <td>{{i.patient_age}}</td>
@@ -91,9 +89,17 @@
     </footer>
     <script type="application/javascript">
       let message = document.getElementById('message').value 
+      
+
+      
       if(message == 'Login Successful!'){
         alert(message)
       }
+
+      if(message == 'You have no access to this page!'){
+        alert(message)
+      }
+
       
       var id
       function delete_patient(data){
@@ -101,9 +107,9 @@
         console.log(id)
       }
 
-      function edit_patient(data){
-        window.location.replace('/edit_patient/'+data)
-      }
+      // function edit_patient(data){
+      //   window.location.replace('/edit_patient/'+data)
+      // }
 
       function patient_delete(data){
         if(data==="Delete"){
@@ -111,19 +117,21 @@
             type : "get",
             url : '/delete_patient/'+id,
             id: id,
-            contentType: "application/json",
-            success: function(id){
-              location.reload();
-            },
+            contentType: "application/html; charset=utf-8",
+            success: function(data){
+              // console.log(data)
+              location.reload()
+            }
           })
           event.preventDefault();
         }
       }
-
+      
       function view_details(data){
         window.location.replace('/view_patient/'+data)
       }
-    </script>
+
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
 </body>
 </html>
